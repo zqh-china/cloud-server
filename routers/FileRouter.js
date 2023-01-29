@@ -2,7 +2,7 @@
  * @Author: zhangqh zhangqihao@shangyangtai.com
  * @Date: 2023-01-29 10:44:36
  * @LastEditors: zhangqh zhangqihao@shangyangtai.com
- * @LastEditTime: 2023-01-29 14:09:53
+ * @LastEditTime: 2023-01-29 17:12:36
  * @FilePath: \cloud\cloud-server\routers\FileRouter.js
  * @Description: 
  * 
@@ -50,7 +50,7 @@ router.post("/", async (req, res) => {
       const file_params = file.name.split(".");
       const file_name = `${uuid.v4()}.${file_params.pop()}`           // 上传到服务器的文件名
       const file_path = `./public/upload/${file_name}`;              // 上传到服务器的文件路径
-      const file_url = `http://${host}:${port}/upload/${file_path}`;  // 前端访问的文件路径
+      const file_url = `http://${host}:${port}/upload/${file_name}`;  // 前端访问的文件路径
       file.mv(file_path);
       try {
         const timestamp = new Date().getTime();
